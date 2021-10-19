@@ -50,11 +50,11 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-reviung41
         with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=reviung41 -DZMK_CONFIG=/github/workspace/config"'
+          args: 'build "--pristine -s zmk/app -b nice_nano_v2 -- -DSHIELD=reviung41 -DZMK_CONFIG=/github/workspace/config"'
       - name: Rename Reviung41
         run: sudo mv build/zephyr/zmk.uf2 build/zephyr/reviung41.uf2
       - name: Archive (Reviung41)
         uses: actions/upload-artifact@v2
         with:
-          name: nice_nano_reviung41
+          name: nice_nano_v2_reviung41
           path: build/zephyr/reviung41.uf2
